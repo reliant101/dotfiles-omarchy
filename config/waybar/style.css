@@ -1,0 +1,459 @@
+/**/
+/* === Bar === */
+/**/
+
+* { 
+    animation-timing-function: steps(12);
+    border: none;
+    border-radius: 0;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    min-height: 0;
+    color: @theme_text_color;
+}
+
+window#waybar {
+    background-color: transparent;
+    border: none;
+}
+
+/* Floating bar effect with higher opacity */
+window > box {
+    background-color: alpha(@theme_bg_color, 0.65); /* Increased from 0.25 to 0.65 */
+    margin: 6px 10px;
+    border-radius: 12px;
+    border: 1px solid alpha(@theme_fg_color, 0.25); /* Slightly more visible border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow */
+    min-height: 32px;
+}
+
+/**/
+/* === Modules === */
+/**/
+
+/* --- Left Modules --- */
+
+/* - Sway Scratchpad - */
+#scratchpad {
+    border-bottom: none;
+    border-right: none;
+    padding: 2px 10px;
+    border-radius: 12px 0 0 12px;
+}
+
+/* - Sway Workspaces - */
+#workspaces {
+    background-color: transparent;
+    border-radius: 8px;
+    margin: 2px 4px;
+}
+
+#workspaces button {
+    border-bottom: none;
+    border-right: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+    min-width: 0;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background-color: alpha(@theme_fg_color, 0.25); /* Increased from 0.15 to 0.25 */
+}
+
+#workspaces button:last-child {
+    border-right: none;
+}
+
+#workspaces button.focused {
+    background-color: alpha(@theme_fg_color, 0.35); /* Increased from 0.25 to 0.35 */
+    border-bottom: 2px solid @focused_borders;
+}
+
+#workspaces button.urgent{
+    background-color: alpha(@warning_color, 0.35); /* Increased from 0.25 to 0.35 */
+    border-bottom: 2px solid @warning_color;
+}
+
+#workspaces button.persistent {
+    font-style: italic;
+}
+
+/* - Sway Window - */
+box#window {
+    border-bottom: none;
+    padding: 2px 10px;
+}
+
+/* - Sway Mode - */
+#mode {
+    background-color: alpha(@warning_color, 0.35); /* Increased from 0.25 to 0.35 */
+    border-bottom: 2px solid @warning_color;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+/* --- Middle Modules --- */
+/* - CPU - */
+#cpu{
+    border-bottom: none;
+    border-right: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+#cpu.0 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 0%, transparent 0%); /* Increased opacity */
+}
+#cpu.1 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 10%, transparent 0%); /* Increased opacity */
+}
+#cpu.2 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 20%, transparent 0%); /* Increased opacity */
+}
+#cpu.3 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 30%, transparent 0%); /* Increased opacity */
+}
+#cpu.4 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 40%, transparent 0%); /* Increased opacity */
+}
+#cpu.5 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 50%, transparent 0%); /* Increased opacity */
+}
+#cpu.6 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 60%, transparent 0%); /* Increased opacity */
+}
+#cpu.7 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 70%, transparent 0%); /* Increased opacity */
+}
+#cpu.8 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 80%, transparent 0%); /* Increased opacity */
+}
+#cpu.9 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 90%, transparent 0%); /* Increased opacity */
+}
+#cpu.10 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 100%, transparent 0%); /* Increased opacity */
+}
+
+/* - Memory - */
+#memory{
+    border-bottom: none;
+    border-right: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+#memory.0 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 0%, transparent 0%); /* Increased opacity */
+}
+#memory.1 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 10%, transparent 0%); /* Increased opacity */
+}
+#memory.2 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 20%, transparent 0%); /* Increased opacity */
+}
+#memory.3 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 30%, transparent 0%); /* Increased opacity */
+}
+#memory.4 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 40%, transparent 0%); /* Increased opacity */
+}
+#memory.5 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 50%, transparent 0%); /* Increased opacity */
+}
+#memory.6 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 60%, transparent 0%); /* Increased opacity */
+}
+#memory.7 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 70%, transparent 0%); /* Increased opacity */
+}
+#memory.8 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 80%, transparent 0%); /* Increased opacity */
+}
+#memory.9 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 90%, transparent 0%); /* Increased opacity */
+}
+#memory.10 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 100%, transparent 0%); /* Increased opacity */
+}
+
+/* - Temperature - */
+#temperature{
+    border-bottom: none;
+    border-right: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+#temperature.warning {
+    background: alpha(@warning_color, 0.35); /* Increased from 0.25 to 0.35 */
+    border-radius: 8px;
+}
+#temperature.critical {
+    background: alpha(@error_color, 0.35); /* Increased from 0.25 to 0.35 */
+    border-radius: 8px;
+}
+
+/* - Disk - */
+#disk{
+    border-bottom: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+#disk.0 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 0%, transparent 0%); /* Increased opacity */
+}
+#disk.1 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 10%, transparent 0%); /* Increased opacity */
+}
+#disk.2 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 20%, transparent 0%); /* Increased opacity */
+}
+#disk.3 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 30%, transparent 0%); /* Increased opacity */
+}
+#disk.4 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 40%, transparent 0%); /* Increased opacity */
+}
+#disk.5 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 50%, transparent 0%); /* Increased opacity */
+}
+#disk.6 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 60%, transparent 0%); /* Increased opacity */
+}
+#disk.7 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 70%, transparent 0%); /* Increased opacity */
+}
+#disk.8 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 80%, transparent 0%); /* Increased opacity */
+}
+#disk.9 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 90%, transparent 0%); /* Increased opacity */
+}
+#disk.10 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 100%, transparent 0%); /* Increased opacity */
+}
+
+/* --- Right Modules --- */
+
+/* - Network - */
+#network {
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+#network.disconnected {
+    border-bottom: none;
+}
+
+/* - Bluetooth - */
+#bluetooth {
+    border-bottom: none;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+/* - WirePlumber - */
+#wireplumber{
+    border-bottom: none;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+#wireplumber.0 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 0%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.1 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 10%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.2 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 20%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.3 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 30%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.4 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 40%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.5 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 50%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.6 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 60%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.7 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 70%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.8 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 80%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.9 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 90%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.10 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 100%, transparent 0%); /* Increased opacity */
+}
+#wireplumber.muted{
+    background-color: alpha(@error_color, 0.35); /* Increased from 0.25 to 0.35 */
+    border-radius: 8px;
+}
+
+/* - Custom/EasyEffects - */
+#custom-easyeffects{
+    border-bottom: none;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+/* - Backlight - */
+#backlight {
+    border-bottom: none;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+#backlight.0 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 0%, transparent 0%); /* Increased opacity */
+}
+#backlight.1 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 10%, transparent 0%); /* Increased opacity */
+}
+#backlight.2 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 20%, transparent 0%); /* Increased opacity */
+}
+#backlight.3 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 30%, transparent 0%); /* Increased opacity */
+}
+#backlight.4 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 40%, transparent 0%); /* Increased opacity */
+}
+#backlight.5 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 50%, transparent 0%); /* Increased opacity */
+}
+#backlight.6 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 60%, transparent 0%); /* Increased opacity */
+}
+#backlight.7 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 70%, transparent 0%); /* Increased opacity */
+}
+#backlight.8 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 80%, transparent 0%); /* Increased opacity */
+}
+#backlight.9 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 90%, transparent 0%); /* Increased opacity */
+}
+#backlight.10 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 100%, transparent 0%); /* Increased opacity */
+}
+
+/* - Battery - */
+#battery {
+    border-bottom: none;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+#battery.0 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 0%, transparent 0%); /* Increased opacity */
+}
+#battery.1 {
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 10%, transparent 0%); /* Increased opacity */
+}
+#battery.2 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 20%, transparent 0%); /* Increased opacity */
+}
+#battery.3 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 30%, transparent 0%); /* Increased opacity */
+}
+#battery.4 {
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 40%, transparent 0%); /* Increased opacity */
+}
+#battery.5 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 50%, transparent 0%); /* Increased opacity */
+}
+#battery.6 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 60%, transparent 0%); /* Increased opacity */
+}
+#battery.7 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 70%, transparent 0%); /* Increased opacity */
+}
+#battery.8 {
+    background: linear-gradient(0deg, alpha(@theme_fg_color, 0.35) 80%, transparent 0%); /* Increased opacity */
+}
+#battery.9 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 90%, transparent 0%); /* Increased opacity */
+}
+#battery.10 {
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 100%, transparent 0%); /* Increased opacity */
+}
+
+/* - Custom/PowerProfile - */
+#custom-power-profile{
+    border-bottom: none;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+#custom-power-profile.power-saver{
+    background: linear-gradient(0deg, alpha(@warning_color, 0.35) 0%, transparent 25%, transparent 75%, alpha(@warning_color, 0.35) 100%); /* Increased opacity */
+}
+#custom-power-profile.balanced{
+    background: linear-gradient(0deg, alpha(@success_color, 0.35) 0%, transparent 25%, transparent 75%, alpha(@success_color, 0.35) 100%); /* Increased opacity */
+}
+#custom-power-profile.performance{
+    background: linear-gradient(0deg, alpha(@error_color, 0.35) 0%, transparent 25%, transparent 75%, alpha(@error_color, 0.35) 100%); /* Increased opacity */
+}
+
+/* - Clock - */
+#clock {
+    border-bottom: none;
+    border-left: none;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+/* === Spacing === */
+
+/* Logo omarchy */
+#custom-omarchy {
+    margin-left: 10px;
+    padding: 2px 10px;
+    border-radius: 12px 0 0 12px;
+}
+
+/* Ghosts workspaces - space */
+#workspaces button {
+    padding: 2px 8px;
+    min-width: 0;
+}
+
+/* Wifi and speaker  */
+#network {
+    margin-right: 8px;
+}
+
+#pulseaudio {
+    margin-left: 8px;
+}
+
+/* Tray group styling */
+#group-tray-expander {
+    border-radius: 8px;
+    margin: 2px 4px;
+}
+
+.tray-group-item {
+    border-radius: 8px;
+}
+
+#tray {
+    border-radius: 8px;
+}
+
+#custom-expand-icon {
+    border-radius: 8px 0 0 8px;
+}

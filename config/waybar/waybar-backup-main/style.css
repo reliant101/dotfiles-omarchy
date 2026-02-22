@@ -1,0 +1,72 @@
+@import "../omarchy/current/theme/waybar.css";
+
+/* --- RESETARE TOTALĂ --- */
+/* Forțăm eliminarea oricărei linii, borduri sau fundal de pe orice element posibil din Waybar */
+#waybar, 
+#waybar > box, 
+#waybar > box > box, 
+#waybar > box > box > widget > box,
+.module,
+.widget,
+label,
+button {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* --- FUNDALUL BAREI (TRANSPARENȚĂ) --- */
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.75) !important; /* Modifică 0.75 pentru transparență */
+}
+
+/* --- STÂNGA: OMarchy (Pacman) & Workspaces --- */
+#custom-omarchy {
+    margin-left: 20px !important; /* Îl mutăm mai la dreapta de margine */
+    margin-right: 15px !important;
+    font-size: 18px;
+}
+
+#workspaces button {
+    padding: 0 10px !important;
+}
+
+/* --- DREAPTA: Icoanele de sistem --- */
+/* Aici punem spațiu între ele ca să nu mai fie înghesuite */
+#bluetooth,
+#network,
+#pulseaudio,
+#temperature,
+#memory,
+#disk,
+#battery {
+    margin-left: 12px !important; /* Spațiu între module */
+    padding: 0 4px !important;
+}
+
+/* Fix pentru ultimul element (Bateria) - Să nu stea lipit de ceas sau margine */
+#battery {
+    margin-right: 15px !important;
+}
+
+/* --- CENTRU: Ceasul --- */
+#clock {
+    font-weight: bold;
+    padding: 0 20px !important;
+    font-size: 14px;
+}
+
+/* --- TRAY (Icoanele mici de lângă ceas) --- */
+#tray {
+    margin-right: 15px !important;
+}
+
+#tray > .passive,
+#tray > .active,
+#tray > .needs-attention {
+    margin: 0 5px !important;
+}

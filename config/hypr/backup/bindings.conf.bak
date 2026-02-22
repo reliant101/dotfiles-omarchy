@@ -1,0 +1,67 @@
+# ~/.config/hypr/bindings.conf
+# Application bindings - VERSIUNEA CORECTĂ PENTRU HYPRLAND
+
+# IMPORTANT: În Hyprland, bindd = bind cu descriere, dar DISPATCHER-UL trebuie să fie valid!
+# Pentru comenzi shell, folosești "exec" ca dispatcher
+
+# Terminal
+bindd = SUPER, Return, Terminal, exec, uwsm-app -- xdg-terminal-exec --dir="$(/home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-cmd-terminal-cwd)"
+
+# File manager
+bindd = SUPER SHIFT, F, File manager, exec, uwsm-app -- nautilus --new-window
+
+# Browser
+bindd = SUPER SHIFT, B, Browser, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-browser
+bindd = SUPER SHIFT ALT, B, Browser (private), exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-browser --private
+
+# Music
+bindd = SUPER SHIFT, M, Music, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-or-focus spotify
+
+# Editor
+bindd = SUPER SHIFT, N, Editor, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-editor
+
+# Docker
+bindd = SUPER SHIFT, D, Docker, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-tui lazydocker
+
+# Obsidian
+bindd = SUPER SHIFT, O, Obsidian, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-or-focus ^obsidian$ "uwsm-app -- obsidian -disable-gpu --enable-wayland-ime"
+
+# Web Apps
+bindd = SUPER SHIFT, A, ChatGPT, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-webapp "https://chatgpt.com"
+bindd = SUPER SHIFT, C, Calendar, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-webapp "https://app.hey.com/calendar/weeks/"
+bindd = SUPER SHIFT, Y, YouTube, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-webapp "https://youtube.com/"
+bindd = SUPER SHIFT ALT, G, WhatsApp, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-or-focus-webapp WhatsApp "https://web.whatsapp.com/"
+bindd = SUPER SHIFT CTRL, G, Google Messages, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-or-focus-webapp "Google Messages" "https://messages.google.com/web/conversations"
+bindd = SUPER SHIFT, P, Google Photos, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-launch-or-focus-webapp "Google Photos" "https://photos.google.com/"
+
+# System controls (corectat - folosește comenzi shell)
+bindd = SUPER ESC, Lock, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-lock-screen
+bindd = SUPER CTRL, L, Logout, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-logout
+bindd = SUPER CTRL, S, Suspend, exec, systemctl suspend
+bindd = SUPER CTRL ALT, S, Shutdown, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-shutdown
+bindd = SUPER CTRL, R, Reload, exec, /home/cyrush/.local/share/omarchy/bin//home/cyrush/.local/share/omarchy/bin/omarchy-reload
+
+# Window management
+bindd = SUPER, H, Focus left, movefocus, l
+bindd = SUPER, J, Focus down, movefocus, d
+bindd = SUPER, K, Focus up, movefocus, u
+bindd = SUPER, L, Focus right, movefocus, r
+bindd = SUPER, F, Toggle float, togglefloating
+
+# Workspace navigation
+bindd = SUPER CTRL, RIGHT, Next workspace, workspace, +1
+bindd = SUPER CTRL, LEFT, Previous workspace, workspace, -1
+bindd = SUPER, 1-9, Workspace 1-9, workspace, %1
+bindd = SUPER SHIFT, 1-9, Move to workspace, movetoworkspace, %1
+
+# Media keys (dacă nu sunt deja în defaults)
+bindd = , XF86AudioRaiseVolume, Volume up, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindd = , XF86AudioLowerVolume, Volume down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindd = , XF86AudioMute, Volume mute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindd = , XF86AudioPlay, Play/Pause, exec, playerctl play-pause
+bindd = , XF86AudioNext, Next track, exec, playerctl next
+bindd = , XF86AudioPrev, Previous track, exec, playerctl previous
+
+# Screenshot utilities
+bindd = SUPER, P, Screenshot area, exec, grim -g "$(slurp)" - | wl-copy
+bindd = SUPER CTRL, P, Screenshot full, exec, grim - | wl-copy
